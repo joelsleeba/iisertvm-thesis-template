@@ -1,0 +1,43 @@
+% TeX root = ../main.tex
+
+\chapter{Results from Measure Theory}
+Here'll we'll discuss some important results from measure theory which are essential for our subject. We already defined what is an $L^p$ function in a given space at \autoref{def:Lp_function}.
+
+\begin{proposition}
+  \label{prop:continuous_functions_in_T_are_dense_in_L1}
+  Continuous functions in $\T$, (refer \autoref{def:continuous_functions_on_T}) are dense in $L^p(\T)$ for $1\le p < \infty$.
+\end{proposition}
+\begin{proof}
+  This is a direct consequence of \autocite[Theorem~3.14 on \pno~69]{papaRudin}. Since $\T$ is identified with $[0, 1)$, all continuous functions in $\T$ are compactly supported.
+\end{proof}
+
+\begin{proposition}
+\label{prop:compact_supported_cont_func_are_dense_in_Lp}
+  Let $C_c(\R)$ be the set of all compactly supported continuous functions in $\R$, then $C_c(\R)$ is dense in $L^p(\R)$. This is \autocite[Theorem~3.14 \pno~69]{papaRudin}.
+\end{proposition}
+
+
+\begin{proposition}
+  \label{prop:L1_functions_are_dense_in_L2}
+  $L^1(\R) \cap L^2(\R)$ is dense in $L^2(\R)$.
+\end{proposition}
+\begin{proof}
+  Let $C_c(\R)$ denote the set of compactly supported continuous functions in $\R$. Since every function is continuous and compactly supported, $C_c(\R) \subset L^p(\R)$ for all $1\le p < \infty$. Therefore $C_c(\R) \subset L^1(\R) \cap L^2(\R)$. Then by \autocite[Theorem~3.14 on \pno~69]{papaRudin} $C_c(\R)$ is dense in $L^2(\R)$ and therefore $L^1(\R) \cap L^2(\R)$ is dense in $L^2(\R)$.
+\end{proof}
+
+If you follow the proof of the above theorem close enough, you'll see that we can make a stronger claim. Since, $C_c(\R) \subset L^p(\R)$ for all $1\le p < \infty$, $$C_c(\R) \subset \bigcap_{1\le p < \infty} L^p(\R)$$
+and therefore again by \autocite[Theorem~3.14 on \pno~69]{papaRudin}, $\bigcap_{1\le p < \infty} L^p(\R)$ is dense in $L^q(\R)$ for all $1 \le q < \infty$. We will state the generalization of this as a seperate result.
+
+\begin{proposition}
+  \label{prop:L2_functions_are_continuous_in_L2_norm_in_R}
+  \label{prop:Lp_functions_are_continuous_in_LpR}
+  If $f\in L^p(\R)$, then $$\lim_{\delta \to 0} \int_\R |f(x+\delta) - f(x)|^p \ dx = 0 $$
+\end{proposition}
+\begin{proof}
+  Since $f\in L^p(\R)$, for every $\epsilon > 0$ there exist an $X$ such that $$\left( \int_{|x|> X-1} |f(x)|^p \ dx \right)^{\frac{1}{p}} < \epsilon$$
+  Therefore by Minkowski's inequality, for $\delta \le 1$, $$ \left( \int_\R |f(x+\delta) - f(x)|^p \ dx \right)^{\frac{1}{p}} \le \left( \int_{-X}^X |f(x+\delta) - f(x)|^p \ dx \right)^{\frac{1}{p}} + 2\epsilon$$
+  Now since $C_c(\R)\cap L^p(\R)$ are dense in $L^p(\R)$ by \autoref{prop:compact_supported_cont_func_are_dense_in_Lp}, there exists a $g \in C([-X-1, X+1])\cap L^p([-X-1, X+1])$ such that $$ \|f-g\|_{L^p([-X-1, X+1])} = \left( \int_{-X-1}^{X+1} |f(x) - g(x)|^p \ dx \right)^{\frac{1}{p}} < \epsilon $$
+  Then by Minkowski's inequality $$ \left( \int_{-X}^X |f(x+\delta) - f(x)|^p \ dx \right)^{\frac{1}{p}} \le \left( \int_{-X}^X |g(x+\delta) - g(x)|^p \ dx \right)^{\frac{1}{p}} + 2\epsilon $$
+  Now since $g$ is continuous in a compact space $[-X-1, X+1]$, it is uniformly continuous. and since $\epsilon$ does not depend on the therefore as $\delta \to 0$ the above integral tends to $0$. Hence the proof.
+\end{proof}
+

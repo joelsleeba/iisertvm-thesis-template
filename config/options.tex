@@ -1,0 +1,35 @@
+\geometry{
+  a4paper, % 'a4paper', 'c5paper', 'letterpaper', 'legalpaper'
+  asymmetric, % don't swap margins in left and right pages. as opposed to 'twoside'
+  centering, % to center the content between margins
+  bindingoffset=0cm,
+}
+
+\renewcommand{\baselinestretch}{1.05} % set linespacing
+% Don't stretch it too much. The spacing will look ugly.
+
+% only need month and year
+\renewcommand{\today}{\ifcase \month \or January\or February\or March\or April\or May%
+\or June\or July\or August\or September\or October\or November\or December\fi\:%
+\number \year}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={blue!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\graphicspath{ {./figures/} } % set the folder for graphics.
+% That is afterwards to refer to the particular image in 
+% 'figures' folder, one would just need the name of the file
+% and not the entire path from the project root directory. 
+% Same works for images in subfolders. See how I added logo
+% in 00Intro/00_Title.tex
+
+% auto reference names. Prepends Thorem before \ref{thm:this_theorem}
+\providecommand*{\definitionautorefname}{Definition}
+\providecommand*{\propositionautorefname}{Proposition}
+\providecommand*{\theoremautorefname}{Theorem}
+\providecommand*{\corollaryautorefname}{Corollary}
+\providecommand*{\lemmaautorefname}{Lemma}

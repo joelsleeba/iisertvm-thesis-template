@@ -1,0 +1,51 @@
+%%% the following commands uses the 'mdframed' package
+%%% to give color boxes around theorems, definitions, 
+%%% and proposition. It also takes care of splitting
+%%% the numbering of theorem and derieved classes from
+%%% theorem. If you don't want color boxes, comment
+%%% the block below and uncomment the next block.
+%%% I thought you'll need another package called 
+%%% 'aliascnt' for the next line, but boy! my code
+%%% is too good.
+
+% \newtheoremstyle{mytheoremstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+% \newtheoremstyle{myproblemstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+%
+% \theoremstyle{mytheoremstyle}
+% \newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowGreen,linecolor=deepGreen,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{theorem}{Theorem}[section]
+% \newmdtheoremenv[linewidth=1pt,backgroundcolor=mygray,linecolor=deepGreen,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{corollary}{Corollary}[section]
+% \newmdtheoremenv[linewidth=1pt,backgroundcolor=mygray,linecolor=ocre,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{lemma}{Lemma}[section]
+% \newmdtheoremenv[linewidth=1pt,backgroundcolor=mygray,linecolor=ocre,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{proposition}{Proposition}[section]
+% \theoremstyle{mytheoremstyle}
+% \newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowBlue,linecolor=deepBlue,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{definition}{Definition}[section]
+%
+% \theoremstyle{myproblemstyle}
+% \newmdtheoremenv[linecolor=black,leftmargin=0pt,innerleftmargin=10pt,innerrightmargin=10pt,]{problem}{Problem}[section]
+
+%%% Standard theorem numbering styles. 
+%%% \newtheorem{newtype}{Display Label}[reset counter at every]
+%%% Here everything except corollary will reset their numbering
+%%% at every new section. That is if the last theorem 
+%%% in section 2 of chapter 1 is labelled 1.2.5 Then the next
+%%% theorem at section 3 of the same chapter will be 1.3.1. 
+\theoremstyle{plain} % default; italic text, extra space above and below
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+
+\theoremstyle{definition} % upright text, extra space above and below
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark} % upright text, no extra space above or below
+\newtheorem*{note}{Note} %'Notes' in italics and without counter 
+
+%%% Use this format to inherit the same numbering for all of
+%%% the below items. They'll all be numbered with the counter
+%%% of theorem. That is lemma after theorem 1.4.5 will be 
+%%% 1.4.6
+% \newtheorem{claim}[theorem]{Claim}
+% \newtheorem{fact}[theorem]{Fact}
+% \newtheorem{notation}[theorem]{Notation}
+% \newtheorem{observation}[theorem]{Observation}
+% \newtheorem{conjecture}[theorem]{Conjecture}
